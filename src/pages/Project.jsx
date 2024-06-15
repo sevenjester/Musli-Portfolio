@@ -1,27 +1,68 @@
-import { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
 
-import skyScene from "../assets/3d/sky.glb";
+import { Link } from "react-router-dom";
 
-// 3D Model from: https://sketchfab.com/3d-models/phoenix-bird-844ba0cf144a413ea92c779f18912042
-export function Sky({ isRotating }) {
-  const sky = useGLTF(skyScene);
-  const skyRef = useRef();
+import  CTA  from "../component/CTA";
+import { projects } from "../constans";
+import { arrow } from "../assets/icons";
 
-  // Note: Animation names can be found on the Sketchfab website where the 3D model is hosted.
-  // It ensures smooth animations by making the rotation frame rate-independent.
-  // 'delta' represents the time in seconds since the last frame.
-  useFrame((_, delta) => {
-    if (isRotating) {
-      skyRef.current.rotation.y += 0.03 * delta; // Adjust the rotation speed as needed
-    }
-  });
-
+const Projects = () => {
   return (
-    <mesh ref={skyRef}>
-      <primitive object={sky.scene} />
-    </mesh>
+    <section className='max-container'>
+      <h1 className='head-text'>
+        My{" "}
+        <span className='blue-gradient_text drop-shadow font-semibold'>
+          Future Projects
+        </span>
+      </h1>
+
+      <p className='text-slate-500 mt-2 leading-relaxed'>
+      I've embarked on numerous projects throughout the years, but now I'm eager to start something new. If you have any ideas or interests, feel free to share them. Your collaboration is highly valued, and together we can create something truly amazing!
+      </p>
+
+      <div className='flex flex-wrap my-20 gap-16'>
+        {projects.map((project) => (
+          <div className='lg:w-[400px] w-full' key={project.name}>
+            <div className='block-container w-12 h-12'>
+              <div className={`btn-back rounded-xl ${project.theme}`} />
+              <div className='btn-front rounded-xl flex justify-center items-center'>
+                <img
+                  src={project.iconUrl}
+                  alt='threads'
+                  className='w-1/2 h-1/2 object-contain'
+                />
+              </div>
+            </div>
+
+            <div className='mt-5 flex flex-col'>
+              <h4 className='text-2xl font-poppins font-semibold'>
+                {project.name}
+              </h4>
+              <p className='mt-2 text-slate-500'>{project.description}</p>
+              <div className='mt-5 flex items-center gap-2 font-poppins'>
+                <Link
+                  to={project.link}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='font-semibold text-blue-600'
+                >
+                  Live Link
+                </Link>
+                <img
+                  src={arrow}
+                  alt='arrow'
+                  className='w-4 h-4 object-contain'
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <hr className='border-slate-200' />
+
+      <CTA />
+    </section>
   );
-}
-export default Sky
+};
+
+export default Projects;
