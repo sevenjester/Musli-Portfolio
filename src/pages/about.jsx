@@ -19,7 +19,7 @@ const About = () => {
 
       <div className='mt-5 flex flex-col gap-3 text-slate-500'>
         <p>
-          Web Developer based in Malaysia, specializing in web Devloper and game Developer .
+          Web Developer based in Malaysia, specializing in web Developer and game Developer .
         </p>
       </div>
 
