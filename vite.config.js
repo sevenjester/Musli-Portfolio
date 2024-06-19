@@ -5,9 +5,14 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   assetsInclude: ['**/*.glb'],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src')
+    }
+  },
  build: {
     rollupOptions: {
-      external: ['/src/main.jsx']
+      external: ['./src/main.jsx']
     }
   }
 })
