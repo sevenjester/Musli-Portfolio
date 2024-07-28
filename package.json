@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "node app.js && webpack serve",
+    "start": "node app.js && webpack serve - mode development - open",
     "dev": "vite",
     "build": "webpack - mode production",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
