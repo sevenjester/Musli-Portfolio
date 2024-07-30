@@ -4,11 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "node app.js && webpack serve - mode development - open",
-    "dev": "vite",
-    "build": "webpack - mode production",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview --port 8080"
+   "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
@@ -20,8 +18,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
     "react-vertical-timeline-component": "^3.6.0",
-    "three": "^0.164.1",
-    "webpack-dev-server": "^5.0.4"
+    "three": "^0.164.1"
   },
   "devDependencies": {
     "@rollup/plugin-babel": "^6.0.4",
@@ -39,8 +36,6 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
-    "vite": "^5.2.0",
-    "webpack": "^5.92.0",
-    "webpack-cli": "^5.1.4"
+    "vite": "^5.2.0"
   }
 }
